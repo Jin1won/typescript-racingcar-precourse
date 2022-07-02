@@ -1,5 +1,5 @@
-const splitName = (nameInput: string) => {
+const nameMaker = (nameInput: string) => {
   return nameInput.split(',');
 };
 
-export { splitName };
+export default nameMaker;

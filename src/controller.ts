@@ -1,6 +1,6 @@
 import RacingGame from './racingGame';
 import { domSelector, addEventListenerToTarget } from './utils/dom';
-import { splitName } from './utils/nameMaker';
+import nameMaker from './utils/nameMaker';
 import { isInputNotNull, isNameLengthValid } from './utils/validation';
 
 class Controller {
@@ -43,7 +43,7 @@ class Controller {
     const nameInputValue = this.racingGame.getNameInputValue();
     if (!isInputNotNull(nameInputValue)) return;
 
-    const nameInputList = splitName(nameInputValue);
+    const nameInputList = nameMaker(nameInputValue);
     if (!isNameLengthValid(nameInputList)) return;
   };
 
@@ -57,6 +57,8 @@ class Controller {
     e.preventDefault();
     const countInputValue = this.racingGame.getCountInputValue();
     if (!isInputNotNull(countInputValue)) return;
+
+    this.racingGame.start();
   };
 }
 
