@@ -1,5 +1,6 @@
 import RacingGame from './racingGame';
 import { domSelector, addEventListenerToTarget } from './utils/dom';
+import { splitName } from './utils/nameMaker';
 
 class Controller {
   racingGame: RacingGame;
@@ -39,8 +40,7 @@ class Controller {
   handleNameSubmit = (e: Event) => {
     e.preventDefault();
     const nameInputValue = this.racingGame.getNameInputValue();
-
-    if (!nameInputValue) return;
+    const nameInputList = splitName(nameInputValue);
   };
 
   handleCountInput = (e: Event) => {
