@@ -1,5 +1,6 @@
 import Car from './compoents/car';
 import nameMaker from './utils/nameMaker';
+import randomNumberMaker from './utils/randomNumberMaker';
 
 class RacingGame {
   nameInput: string;
@@ -8,10 +9,13 @@ class RacingGame {
 
   cars: Car[];
 
+  randomNumbers: number[];
+
   constructor() {
     this.nameInput = '';
     this.countInput = 0;
     this.cars = [];
+    this.randomNumbers = [];
   }
 
   start() {
