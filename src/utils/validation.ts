@@ -7,4 +7,12 @@ const isNameLengthValid = (nameInputList: string[]): string[] => {
   return nameInputList;
 };
 
-export { isNameLengthValid };
+const isInputNotNull = (nameInput: string | number | undefined) => {
+  if (nameInput === undefined) {
+    alert('인풋을 입력하세요.');
+    return false;
+  }
+  return true;
+};
+
+export { isNameLengthValid, isInputNotNull };
