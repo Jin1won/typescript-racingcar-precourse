@@ -15,4 +15,11 @@ const isInputNotNull = (nameInput: string | number | undefined) => {
   return true;
 };
 
-export { isNameLengthValid, isInputNotNull };
+const isCarForward = (randomNumber: number) => {
+  if (randomNumber >= 4) {
+    return true;
+  }
+  return false;
+};
+
+export { isNameLengthValid, isInputNotNull, isCarForward };

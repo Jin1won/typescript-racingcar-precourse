@@ -1,6 +1,7 @@
 import Car from './compoents/car';
 import nameMaker from './utils/nameMaker';
 import randomNumberMaker from './utils/randomNumberMaker';
+import { isCarForward } from './utils/validation';
 
 class RacingGame {
   nameInput: string;
@@ -24,6 +25,15 @@ class RacingGame {
       this.cars.push(new Car(carNames[i], 0));
     }
     console.log(this.cars);
+
+    for (let i = 0; i < this.countInput; i++) {
+      this.cars.map((car) => {
+        if (isCarForward(randomNumberMaker())) {
+          car.setCarForward(car.getCarForward() + 1);
+          console.log(car.getCarForward());
+        }
+      });
+    }
   }
 
   getNameInputValue() {
