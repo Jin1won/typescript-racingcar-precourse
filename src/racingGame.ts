@@ -35,10 +35,10 @@ class RacingGame {
       const gameResultNode = gameResult.createGameResultElement(this.cars);
       gameResult.addGameResultElement(gameResultNode);
     }
-    gameResult.addFinalResult(this.cars);
+    gameResult.addFinalResultElement(this.cars);
   }
 
-  getNameInputValue() {
+  getNameInputValue(): string {
     return this.nameInput;
   }
 
@@ -46,7 +46,7 @@ class RacingGame {
     this.nameInput = value;
   }
 
-  getCountInputValue() {
+  getCountInputValue(): number {
     return this.countInput;
   }
 

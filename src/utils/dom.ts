@@ -1,8 +1,10 @@
 type TargetType = Element | Document | null;
 
-const domSelector = (selector: string) => document.querySelector(selector);
+const domSelector = (selector: string): HTMLElement | null =>
+  document.querySelector(selector);
 
-const domCreator = (creator: string) => document.createElement(creator);
+const domCreator = (creator: string): HTMLElement =>
+  document.createElement(creator);
 
 function addEventListenerToTarget(
   eventTarget: TargetType,

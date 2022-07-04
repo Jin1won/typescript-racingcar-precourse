@@ -7,7 +7,7 @@ const isNameLengthValid = (nameInputList: string[]): string[] => {
   return nameInputList;
 };
 
-const isInputNotNull = (nameInput: string | number | undefined) => {
+const isInputNotNull = (nameInput: string | number | undefined): boolean => {
   if (nameInput === undefined) {
     alert('인풋을 입력하세요.');
     return false;
@@ -15,7 +15,7 @@ const isInputNotNull = (nameInput: string | number | undefined) => {
   return true;
 };
 
-const isCarForward = (randomNumber: number) => {
+const isCarForward = (randomNumber: number): boolean => {
   if (randomNumber >= 4) {
     return true;
   }

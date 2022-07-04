@@ -37,7 +37,7 @@ class GameResult {
     this.resultElement.appendChild(newNode);
   };
 
-  addFinalResult = (cars: Car[]) => {
+  addFinalResultElement = (cars: Car[]) => {
     cars.map((car) => {
       this.racingWinnersForward = Math.max(
         this.racingWinnersForward,

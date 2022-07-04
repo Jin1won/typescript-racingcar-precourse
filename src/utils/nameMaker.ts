@@ -1,4 +1,4 @@
-const nameMaker = (nameInput: string) => {
+const nameMaker = (nameInput: string): string[] => {
   return nameInput.split(',');
 };
 

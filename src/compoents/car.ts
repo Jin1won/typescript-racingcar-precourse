@@ -8,7 +8,7 @@ class Car {
     this.forward = forward;
   }
 
-  getCarName() {
+  getCarName(): string {
     return this.name;
   }
 
@@ -16,7 +16,7 @@ class Car {
     this.name = name;
   }
 
-  getCarForward() {
+  getCarForward(): number {
     return this.forward;
   }
 
