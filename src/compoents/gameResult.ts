@@ -1,5 +1,6 @@
 import { domSelector, domCreator } from '../utils/dom';
 import Car from './car';
+import { SELECTOR, CREATOR, STYLE } from '../constants/index';
 
 class GameResult {
   resultElement: HTMLDivElement;
@@ -11,21 +12,21 @@ class GameResult {
   racingWinnersForward: number;
 
   constructor() {
-    this.resultElement = domSelector('#result') as HTMLDivElement;
+    this.resultElement = domSelector(SELECTOR.RESULT) as HTMLDivElement;
     this.racingWinnersElement = domSelector(
-      '#racing-winners',
+      SELECTOR.RACING_WINNERS,
     ) as HTMLSpanElement;
     this.racingWinners = [];
     this.racingWinnersForward = 0;
   }
 
   createGameResultElement = (cars: Car[]): HTMLElement => {
-    const newNode = domCreator('ul');
-    newNode.style.padding = '0px';
+    const newNode = domCreator(CREATOR.UL);
+    newNode.style.padding = STYLE.PADDING;
 
     cars.map((car) => {
-      const carNode = domCreator('li');
-      carNode.style.listStyle = 'none';
+      const carNode = domCreator(CREATOR.LI);
+      carNode.style.listStyle = STYLE.LIST_STYLE;
       carNode.innerHTML = `${car.name}: ` + '-'.repeat(car.forward);
       newNode.appendChild(carNode);
     });

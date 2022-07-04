@@ -3,6 +3,7 @@ import GameResult from './compoents/gameResult';
 import { domSelector, addEventListenerToTarget } from './utils/dom';
 import nameMaker from './utils/nameMaker';
 import { isInputNotNull, isNameLengthValid } from './utils/validation';
+import { SELECTOR, EVENT_TYPE } from './constants';
 
 class Controller {
   racingGame: RacingGame;
@@ -17,23 +18,23 @@ class Controller {
 
   addEvent() {
     addEventListenerToTarget(
-      domSelector('#car-names-input'),
-      'input',
+      domSelector(SELECTOR.CAR_NAMES_INPUT),
+      EVENT_TYPE.INPUT,
       this.handleNameInput.bind(this),
     );
     addEventListenerToTarget(
-      domSelector('#car-names-submit'),
-      'click',
+      domSelector(SELECTOR.CAR_NAMES_SUBMIT),
+      EVENT_TYPE.CLICK,
       this.handleNameSubmit.bind(this),
     );
     addEventListenerToTarget(
-      domSelector('#racing-count-input'),
-      'input',
+      domSelector(SELECTOR.RACING_COUNT_INPIT),
+      EVENT_TYPE.INPUT,
       this.handleCountInput.bind(this),
     );
     addEventListenerToTarget(
-      domSelector('#racing-count-submit'),
-      'click',
+      domSelector(SELECTOR.RACING_COUNT_SUBMIT),
+      EVENT_TYPE.CLICK,
       this.handleCountSubmit.bind(this),
     );
   }

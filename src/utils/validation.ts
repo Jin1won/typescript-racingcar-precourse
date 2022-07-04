@@ -1,7 +1,9 @@
+import { ERROR_MESSAGE, FORWARD_MIN_NUMBER } from '../constants';
+
 const isNameLengthValid = (nameInputList: string[]): string[] => {
   nameInputList.map((name) => {
     if (name.length > 5) {
-      alert('자동차 이름을 5자 이하로 입력하세요.');
+      alert(ERROR_MESSAGE.NAME_LENGTH_INVALID);
     }
   });
   return nameInputList;
@@ -9,14 +11,14 @@ const isNameLengthValid = (nameInputList: string[]): string[] => {
 
 const isInputNotNull = (nameInput: string | number | undefined): boolean => {
   if (nameInput === undefined) {
-    alert('인풋을 입력하세요.');
+    alert(ERROR_MESSAGE.INPUT_NULL);
     return false;
   }
   return true;
 };
 
 const isCarForward = (randomNumber: number): boolean => {
-  if (randomNumber >= 4) {
+  if (randomNumber >= FORWARD_MIN_NUMBER) {
     return true;
   }
   return false;
