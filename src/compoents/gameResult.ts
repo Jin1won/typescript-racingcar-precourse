@@ -1,6 +1,11 @@
 import { domSelector, domCreator } from '../utils/dom';
 import Car from './car';
 import { SELECTOR, CREATOR, STYLE } from '../constants/index';
+import {
+  carResultMaker,
+  calculateMaxForward,
+  findRacingWinners,
+} from '../utils/resultMaker';
 
 class GameResult {
   resultElement: HTMLDivElement;
@@ -27,7 +32,7 @@ class GameResult {
     cars.map((car) => {
       const carNode = domCreator(CREATOR.LI);
       carNode.style.listStyle = STYLE.LIST_STYLE;
-      carNode.innerHTML = `${car.name}: ` + '-'.repeat(car.forward);
+      carNode.innerHTML = carResultMaker(car);
       newNode.appendChild(carNode);
     });
 
@@ -39,18 +44,16 @@ class GameResult {
   };
 
   addFinalResultElement = (cars: Car[]) => {
-    cars.map((car) => {
-      this.racingWinnersForward = Math.max(
-        this.racingWinnersForward,
-        car.forward,
-      );
-    });
+    this.racingWinnersForward = calculateMaxForward(
+      cars,
+      this.racingWinnersForward,
+    );
 
-    cars.map((car) => {
-      if (car.forward === this.racingWinnersForward) {
-        this.racingWinners.push(car.name);
-      }
-    });
+    this.racingWinners = findRacingWinners(
+      cars,
+      this.racingWinnersForward,
+      this.racingWinners,
+    );
 
     this.racingWinnersElement.innerHTML = this.racingWinners.join(', ');
   };
