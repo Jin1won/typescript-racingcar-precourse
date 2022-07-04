@@ -18,12 +18,18 @@ const ERROR_MESSAGE = {
   INPUT_NULL: '인풋을 입력하세요.',
 };
 
+const CAR_NAME_MIN_LENGTH = 5;
+
 const FORWARD_MIN_NUMBER = 4;
+
+const RANDOM_NUMBER = { MIN: 0, MAX: 9 };
 export {
   SELECTOR,
   CREATOR,
   STYLE,
   EVENT_TYPE,
   ERROR_MESSAGE,
+  CAR_NAME_MIN_LENGTH,
   FORWARD_MIN_NUMBER,
+  RANDOM_NUMBER,
 };

@@ -1,8 +1,12 @@
-import { ERROR_MESSAGE, FORWARD_MIN_NUMBER } from '../constants';
+import {
+  ERROR_MESSAGE,
+  CAR_NAME_MIN_LENGTH,
+  FORWARD_MIN_NUMBER,
+} from '../constants';
 
 const isNameLengthValid = (nameInputList: string[]): string[] => {
   nameInputList.map((name) => {
-    if (name.length > 5) {
+    if (name.length > CAR_NAME_MIN_LENGTH) {
       alert(ERROR_MESSAGE.NAME_LENGTH_INVALID);
     }
   });
