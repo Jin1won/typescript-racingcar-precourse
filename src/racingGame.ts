@@ -2,12 +2,16 @@ import Car from './compoents/car';
 import GameResult from './compoents/gameResult';
 import nameMaker from './utils/nameMaker';
 import randomNumberMaker from './utils/randomNumberMaker';
-import { isCarForward } from './utils/validation';
+import { isCarForward, checkBothInputValid } from './utils/validation';
 
 class RacingGame {
   nameInput: string;
 
   countInput: number;
+
+  isNameInputValid: boolean;
+
+  isCountInputValid: boolean;
 
   cars: Car[];
 
@@ -16,11 +20,16 @@ class RacingGame {
   constructor() {
     this.nameInput = '';
     this.countInput = 0;
+    this.isNameInputValid = false;
+    this.isCountInputValid = false;
     this.cars = [];
     this.randomNumbers = [];
   }
 
   start(gameResult: GameResult) {
+    if (!checkBothInputValid(this.isNameInputValid, this.isCountInputValid))
+      return;
+
     const carNames = nameMaker(this.nameInput);
     for (let i = 0; i < carNames.length; i++) {
       this.cars.push(new Car(carNames[i], 0));

@@ -50,18 +50,20 @@ class Controller {
 
     const nameInputList = nameMaker(nameInputValue);
     if (!isNameLengthValid(nameInputList)) return;
+
+    this.racingGame.isNameInputValid = true;
   };
 
   handleCountInput = (e: Event) => {
-    this.racingGame.setCountInputValue(
-      Number((e.target as HTMLInputElement).value),
-    );
+    this.racingGame.setCountInputValue((e.target as HTMLInputElement).value);
   };
 
   handleCountSubmit = (e: Event) => {
     e.preventDefault();
     const countInputValue = this.racingGame.getCountInputValue();
     if (!isInputNotNull(countInputValue)) return;
+
+    this.racingGame.isCountInputValid = true;
 
     this.racingGame.start(this.gameResult);
   };

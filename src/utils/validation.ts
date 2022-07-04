@@ -4,6 +4,8 @@ import {
   FORWARD_MIN_NUMBER,
 } from '../constants';
 
+type InputValueType = string | number;
+
 const isNameLengthValid = (nameInputList: string[]): string[] => {
   nameInputList.map((name) => {
     if (name.length > CAR_NAME_MIN_LENGTH) {
@@ -13,8 +15,8 @@ const isNameLengthValid = (nameInputList: string[]): string[] => {
   return nameInputList;
 };
 
-const isInputNotNull = (nameInput: string | number | undefined): boolean => {
-  if (nameInput === undefined) {
+const isInputNotNull = (inputValue: InputValueType | undefined): boolean => {
+  if (inputValue === undefined) {
     alert(ERROR_MESSAGE.INPUT_NULL);
     return false;
   }
@@ -28,4 +30,18 @@ const isCarForward = (randomNumber: number): boolean => {
   return false;
 };
 
-export { isNameLengthValid, isInputNotNull, isCarForward };
+const checkBothInputValid = (
+  isNameInputValid: boolean,
+  isCountInputValid: boolean,
+): boolean => {
+  if (!isNameInputValid) {
+    alert(ERROR_MESSAGE.NAME_NOT_VALID);
+    return false;
+  } else if (!isCountInputValid) {
+    alert(ERROR_MESSAGE.COUNT_NOT_VALID);
+    return false;
+  }
+  return true;
+};
+
+export { isNameLengthValid, isInputNotNull, isCarForward, checkBothInputValid };

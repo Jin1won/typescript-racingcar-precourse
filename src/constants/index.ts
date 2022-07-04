@@ -16,6 +16,8 @@ const EVENT_TYPE = { INPUT: 'input', CLICK: 'click' };
 const ERROR_MESSAGE = {
   NAME_LENGTH_INVALID: '자동차 이름을 5자 이하로 입력하세요.',
   INPUT_NULL: '인풋을 입력하세요.',
+  NAME_NOT_VALID: '이름을 입력 후, 제출하세요.',
+  COUNT_NOT_VALID: '숫자를 입력 후, 제출하세요.',
 };
 
 const CAR_NAME_MIN_LENGTH = 5;
