@@ -1,4 +1,4 @@
-import { domSelector } from './utils/dom';
+import { domSelector, domCreator } from '../utils/dom';
 
 class GameResult {
   result: HTMLDivElement;
@@ -7,23 +7,23 @@ class GameResult {
     this.result = domSelector('#result') as HTMLDivElement;
   }
 
-  createGameResultElement = (cars: Car) => {
-    let newNode = document.createElement('ul');
+  createGameResultElement = (cars: Car[]): HTMLElement => {
+    const newNode = domCreator('ul');
     newNode.style.paddingLeft = '10px';
+
     cars.map((car) => {
-      let carNode = document.createElement('li');
+      const carNode = domCreator('li');
       carNode.style.listStyle = 'none';
       carNode.innerHTML = `${car.name}: ` + '-'.repeat(car.forward);
       newNode.appendChild(carNode);
     });
 
-    this.result.appendChild(newNode);
+    return newNode;
   };
 
-  addGameResultElement = () => {};
-  //   render(markup: string) {
-  //     this.result.innerHTML = markup;
-  //   }
+  addGameResultElement = (newNode: HTMLElement) => {
+    this.result.appendChild(newNode);
+  };
 }
 
 export default GameResult;

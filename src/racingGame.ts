@@ -1,4 +1,5 @@
 import Car from './compoents/car';
+import GameResult from './compoents/gameResult';
 import nameMaker from './utils/nameMaker';
 import randomNumberMaker from './utils/randomNumberMaker';
 import { isCarForward } from './utils/validation';
@@ -19,41 +20,37 @@ class RacingGame {
     this.randomNumbers = [];
   }
 
-  start() {
+  start(gameResult: GameResult) {
     const carNames = nameMaker(this.nameInput);
     for (let i = 0; i < carNames.length; i++) {
       this.cars.push(new Car(carNames[i], 0));
     }
-    console.log(this.cars);
 
     for (let i = 0; i < this.countInput; i++) {
       this.cars.map((car) => {
         if (isCarForward(randomNumberMaker())) {
           car.setCarForward(car.getCarForward() + 1);
-          console.log(car.getCarForward());
         }
       });
+      const gameResultNode = gameResult.createGameResultElement(this.cars);
+      gameResult.addGameResultElement(gameResultNode);
     }
   }
 
   getNameInputValue() {
-    console.log(this.nameInput);
     return this.nameInput;
   }
 
   setNameInputValue(value: string) {
     this.nameInput = value;
-    console.log(this.nameInput);
   }
 
   getCountInputValue() {
-    console.log(this.countInput);
     return this.countInput;
   }
 
   setCountInputValue(value: number) {
     this.countInput = value;
-    console.log(this.countInput);
   }
 }
 

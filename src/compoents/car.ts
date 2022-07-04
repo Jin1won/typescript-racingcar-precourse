@@ -9,23 +9,19 @@ class Car {
   }
 
   getCarName() {
-    console.log(this.name);
     return this.name;
   }
 
   setCarName(name: string) {
     this.name = name;
-    console.log(this.name);
   }
 
   getCarForward() {
-    console.log(this.forward);
     return this.forward;
   }
 
   setCarForward(forward: number) {
     this.forward = forward;
-    console.log(this.forward);
   }
 }
 

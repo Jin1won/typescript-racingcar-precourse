@@ -1,6 +1,6 @@
 import Controller from './controller';
 import RacingGame from './racingGame';
-import GameResult from './gameResult';
+import GameResult from './compoents/gameResult';
 
 const racingGame = new RacingGame();
 const gameResult = new GameResult();

@@ -1,5 +1,5 @@
 import RacingGame from './racingGame';
-import GameResult from './gameResult';
+import GameResult from './compoents/gameResult';
 import { domSelector, addEventListenerToTarget } from './utils/dom';
 import nameMaker from './utils/nameMaker';
 import { isInputNotNull, isNameLengthValid } from './utils/validation';
@@ -62,8 +62,7 @@ class Controller {
     const countInputValue = this.racingGame.getCountInputValue();
     if (!isInputNotNull(countInputValue)) return;
 
-    this.racingGame.start();
-    this.gameResult.createGameResultElement(this.racingGame.cars);
+    this.racingGame.start(this.gameResult);
   };
 }
 
